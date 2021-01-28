@@ -6,7 +6,10 @@ import {
 } from "../constants/reviewConstants";
 import API from "../API";
 
-export const createUserReview = (review) => async (dispatch, getState) => {
+export const createUserReview = ({ type, description }) => async (
+  dispatch,
+  getState
+) => {
   try {
     dispatch({
       type: USER_CREATE_REVIEW_REQUEST,
@@ -22,12 +25,15 @@ export const createUserReview = (review) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-
-    const { data } = await axios.post(`${API}/api/reviews/new`, review, config);
+    const { data } = await axios.post(
+      `${API}/api/reviews/new`,
+      { type, description },
+      config
+    );
 
     dispatch({
       type: USER_CREATE_REVIEW_SUCCESS,
-      payload: { data },
+      payload: data.review,
     });
     //localStorage.setItem("userExp", JSON.stringify(data));
   } catch (error) {

@@ -98,7 +98,7 @@ export const register = (name, email, password) => async (dispatch) => {
   }
 };
 
-export const getUserDetails = (id) => async (dispatch, getState) => {
+export const getUserDetails = () => async (dispatch, getState) => {
   try {
     dispatch({
       type: USER_DETAILS_REQUEST,
@@ -107,7 +107,6 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState();
-
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -115,8 +114,8 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${API}/${id}`, config);
-
+    const { data } = await axios.get(`${API}/api/users/profile`, config);
+    console.log(data);
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data,

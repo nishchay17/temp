@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import { createUserReview } from "../actions/reviewActions";
 import { USER_CREATE_REVIEW_RESET } from "../constants/reviewConstants";
-import API from "../API";
-import axios from "axios";
 
 const CreateReviewScreen = ({ match }) => {
   const [type, setType] = useState("");
@@ -19,19 +17,8 @@ const CreateReviewScreen = ({ match }) => {
 
   const userReview = useSelector((state) => state.userReview);
   const { success: successReview, error: errorReview, reviews } = userReview;
-
-  const d = () => {
-    fetch(`${API}/api/reviews/all`, {
-      method: "GET",
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  };
-
+  console.log(reviews);
   useEffect(() => {
-    d();
     if (successReview) {
       alert("Your experience has been added!");
       setType("");
@@ -42,8 +29,9 @@ const CreateReviewScreen = ({ match }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log({ type, description });
     dispatch(
-      createUserReview(match.params.id, {
+      createUserReview({
         type,
         description,
       })
@@ -56,13 +44,11 @@ const CreateReviewScreen = ({ match }) => {
         <Col md={6}>
           <h1>Experiences</h1>
           <ListGroup variant="flush">
-            {reviews.map((review) => (
-              <ListGroup.Item key={review._id}>
-                <strong>{review.name}</strong>
-                <p>{review.type}</p>
-                <p>{review.description}</p>
-              </ListGroup.Item>
-            ))}
+            <ListGroup.Item>
+              <strong>{reviews?.name}</strong>
+              <p>{reviews?.type}</p>
+              <p>{reviews?.description}</p>
+            </ListGroup.Item>
 
             <ListGroup.Item>
               <h2>Write your thrilling experience</h2>
