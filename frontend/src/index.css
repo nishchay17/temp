@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto+Mono:wght@500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.up {
+  font-size: 1.7vh;
+  color: black;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 1rem 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.form1 {
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.placeholder {
+  font-size: 1.1rem;
+}
+
+.register {
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.py-1 {
+  font-size: 50px;
+}
+
+.btn-m {
+  min-width: 200px;
+  font-size: 15px;
+}
+
+main {
+  min-height: 80vh;
+}
+
+h6 {
+  min-height: 30vh;
+}
+
+.img {
+  background-image: url("./screens/images/pic1.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.profile {
+  background-image: url("./screens/images/pic5.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+}
+
+.xyz {
+  font-size: 2.7vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.bg {
+  background: rgba(133, 177, 197, 0.808);
+}
+
+.image {
+  margin: 0px auto;
+  max-width: 1400px;
+}
+
+#about {
+  font-size: 35px;
+  color: rgba(15, 14, 14, 0.863);
+  font-family: "Roboto Mono", monospace;
+}
+
+.footer {
+  font-size: 20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.back {
+  font-size: 25px;
+  font-family: "Roboto Mono", monospace;
+}
