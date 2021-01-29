@@ -28,12 +28,12 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user.name || success) {
+      if (!user?.user?.name || success === true) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails());
       } else {
-        setName(user.name);
-        setEmail(user.email);
+        setName(user.user.name);
+        setEmail(user.user.email);
       }
     }
   }, [dispatch, history, userInfo, user, success]);
